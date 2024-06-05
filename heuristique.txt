@@ -1,0 +1,48 @@
+def Programme Rosace_Cavalier_Heuristique(pos,map,n,taille=5,chemain=[]):
+
+    # Définie la case actuellement calculer par la fonction a "1" dans le chemain effectuer
+    map[positionActuelle]=n+1
+    
+    # Une variable temporaire qui définieras si la fonction a trouver une case accesible (Faux si aucune case n'est accesible)
+    tmpA = Faux 
+
+
+    ListeDesMeilleursCases = [] 
+    NombreReprésenterParLesMeilleursCase = 8
+
+    
+    Pour chaque case dans "les cases accesible depuis la case actuelle" :
+
+        x2 = case[0]
+        y2 = case[1]
+
+        Si x2 est plus petit que taille-1 et que y2 est plus petit que taille-1 et que x2 plus grand ou égale a 0 et que y2 est plus grand ou égale a 0 (Vérifier si la case est sur l'échecier puis stocker les case avec le moin de possibilitée dans un tableau)
+
+            Si map[y2][x2] < 1 :
+
+                Si PoidDuneCase(Coordonée x2 et y2) Est inferieur a NombreReprésenterParLesMeilleursCase :
+                    ListeDesMeilleursCases = Case
+                    NombreReprésenterParLesMeilleursCase = PoidDuneCase(Coordonée x2 et y2)
+                Fin Si
+
+                Si PoidDuneCase(Coordonée x2 et y2) Est égale a NombreReprésenterParLesMeilleursCase :
+                    ListeDesMeilleursCases.append(case)
+                    NombreReprésenterParLesMeilleursCase=PoidDuneCase(Coordonée x2 et y2)
+                Fin Si
+
+            Fin Si
+    Fin Pour chaque
+
+    Si NombreDeCaseParcourue Est plus grand ou égale a Nombre de case sur l'échecier :
+        Ecrire(display(map))
+        Ecrire(chemain)
+    Fin Si
+    
+    Si NombreDeMeilleurCase Est plus grand ou égale a 1 :
+        tmpA = True
+        Pour chaque Case dans ListeDesMeilleursCases :
+            Programme Rosace_Cavalier_Heuristique(Case,map,n+1,taille,chemain)
+        Fin pour chaque
+    Fin si
+    
+Fin Programme Rosace_Cavalier_Heuristique

@@ -1,0 +1,31 @@
+# Fonction de backtracking cherchant des solution au problème
+Programe CalculeCavalier ( pos, map, n, taille=5, chemain=[]):
+
+    # Définie la case actuellement calculer par la fonction a "1" dans le chemain effectuer
+    map[positionActuelle]=n+1
+    
+    # Une variable temporaire qui définieras si la fonction a trouver une case accesible (Faux si aucune case n'est accesible)
+    tmpA = Faux 
+
+    Pour chaque case dans "les cases accesible depuis la case actuelle" :
+
+        x2 = position x de la case tester
+        y2 = position y de la case tester
+
+        
+        Si x2 est plus petit que taille-1 et que y2 est plus petit que taille-1 et que x2 plus grand ou égale a 0 et que y2 est plus grand ou égale a 0 (Vérifier si la case est sur l'échecier)
+
+
+            if map[y2][x2] <1:
+
+                tmpA=Vrais
+                Programe CalculeCavalier([x2,y2] ,map ,n+1 ,taille ,chemain)
+        Fin Si
+
+    Fin Pour chaque
+                
+    Si tmpA est égale a Faux :
+        if n>=taille*taille-1 :
+            Lire(Afficher(map))
+            Lire(chemain)
+Fin programe CalculeCavalier
